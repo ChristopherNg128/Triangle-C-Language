@@ -1,0 +1,47 @@
+#include <stdio.h>
+#pragma warning (disable:4996)
+
+void triangle(int line, char sym) {
+    for (int i = 0; i < line; i++) {
+        for (int j = 0; j <= i; j++)
+            printf("%c", sym);
+        printf("\n");
+    }
+}
+
+void inverse_tri(int line, char sym) {
+    for (int i = 0; i < line; i++) {
+        for (int j = 1; j <=i ; j++) 
+            printf(" ");
+        for (int j = line; j > i; j--) 
+            printf("%c", sym);
+        printf("\n");
+    }
+}
+
+void square(int line, char sym) {
+    for (int i = 0; i < line; i++) {
+        for (int j = 0; j < line; j++) 
+            printf("%c", sym);
+        printf("\n");
+    }
+}
+
+int main() {
+    int figure, line;
+    char symbol;
+    while (scanf("%d %d %c", &figure, &line, &symbol) != EOF) {
+        switch (figure) {
+        case 1:
+            triangle(line, symbol);
+            break;
+        case 2:
+            inverse_tri(line, symbol);
+            break;
+        case 3:
+            square(line, symbol);
+            break;
+        }
+    }
+    return 0;
+}
